@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_58900a8483f421c4d06841810c23615d {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_58900a8483f421c4d06841810c23615d" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_58900a8483f421c4d06841810c23615d = L.map(
+                "map_58900a8483f421c4d06841810c23615d",
+                {
+                    center: [20.5937, 78.9629],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 5,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_0c95b6b386fea153464b122f526c7191 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_0c95b6b386fea153464b122f526c7191.addTo(map_58900a8483f421c4d06841810c23615d);
+        
+    
+            var marker_2ca857e45f30c11f1e62b452aecfbd32 = L.marker(
+                [54.351965099017434, 40.96853917727768],
+                {
+}
+            ).addTo(map_58900a8483f421c4d06841810c23615d);
+        
+    
+        var popup_fc8ff25857940b563fe81f48aa11f0b9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_93cf8515e9d819d0069c5d369f203d7e = $(`<div id="html_93cf8515e9d819d0069c5d369f203d7e" style="width: 100.0%; height: 100.0%;">Hahn, Phelps and Koch - $614768</div>`)[0];
+                popup_fc8ff25857940b563fe81f48aa11f0b9.setContent(html_93cf8515e9d819d0069c5d369f203d7e);
+            
+        
+
+        marker_2ca857e45f30c11f1e62b452aecfbd32.bindPopup(popup_fc8ff25857940b563fe81f48aa11f0b9)
+        ;
+
+        
+    
+    
+            marker_2ca857e45f30c11f1e62b452aecfbd32.bindTooltip(
+                `<div>
+                     Condo
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_e78ac5cd03a56e505695eba1237d8fb4 = L.marker(
+                [-18.19748851774385, -45.982727065646856],
+                {
+}
+            ).addTo(map_58900a8483f421c4d06841810c23615d);
+        
+    
+        var popup_1a4655efcf44a17b8718ce9226ae66d4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_72d2c6bebaca6cc875161d103101b6f1 = $(`<div id="html_72d2c6bebaca6cc875161d103101b6f1" style="width: 100.0%; height: 100.0%;">Johnson, Montoya and Baker - $1374860</div>`)[0];
+                popup_1a4655efcf44a17b8718ce9226ae66d4.setContent(html_72d2c6bebaca6cc875161d103101b6f1);
+            
+        
+
+        marker_e78ac5cd03a56e505695eba1237d8fb4.bindPopup(popup_1a4655efcf44a17b8718ce9226ae66d4)
+        ;
+
+        
+    
+    
+            marker_e78ac5cd03a56e505695eba1237d8fb4.bindTooltip(
+                `<div>
+                     House
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_4c6c5e744a5e6f8210b340f9db8f1f0a = L.marker(
+                [28.691172974295952, 133.13628933362833],
+                {
+}
+            ).addTo(map_58900a8483f421c4d06841810c23615d);
+        
+    
+        var popup_3e4400516e0733300a986c41a6f6ce2a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6fc3f039a5734d3fbf188cc51f6098b9 = $(`<div id="html_6fc3f039a5734d3fbf188cc51f6098b9" style="width: 100.0%; height: 100.0%;">Lawrence Inc - $459628</div>`)[0];
+                popup_3e4400516e0733300a986c41a6f6ce2a.setContent(html_6fc3f039a5734d3fbf188cc51f6098b9);
+            
+        
+
+        marker_4c6c5e744a5e6f8210b340f9db8f1f0a.bindPopup(popup_3e4400516e0733300a986c41a6f6ce2a)
+        ;
+
+        
+    
+    
+            marker_4c6c5e744a5e6f8210b340f9db8f1f0a.bindTooltip(
+                `<div>
+                     House
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_95e68f66500c341ac213c0ec05103c13 = L.marker(
+                [0.49441584643047065, -155.998021823242],
+                {
+}
+            ).addTo(map_58900a8483f421c4d06841810c23615d);
+        
+    
+        var popup_a93c0fa8d500a1e7c81e5bd0c6fac245 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_287293a8bcdb95c190b6e5a14ba00e96 = $(`<div id="html_287293a8bcdb95c190b6e5a14ba00e96" style="width: 100.0%; height: 100.0%;">Werner-Ramirez - $382332</div>`)[0];
+                popup_a93c0fa8d500a1e7c81e5bd0c6fac245.setContent(html_287293a8bcdb95c190b6e5a14ba00e96);
+            
+        
+
+        marker_95e68f66500c341ac213c0ec05103c13.bindPopup(popup_a93c0fa8d500a1e7c81e5bd0c6fac245)
+        ;
+
+        
+    
+    
+            marker_95e68f66500c341ac213c0ec05103c13.bindTooltip(
+                `<div>
+                     Condo
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_26b4e7ba42119f2fa9f05d311d69796d = L.marker(
+                [-16.250126215698515, -95.14336282245037],
+                {
+}
+            ).addTo(map_58900a8483f421c4d06841810c23615d);
+        
+    
+        var popup_ddcf8bd4358aa4849f3a98d1d52bca29 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b93f415fccaf88f16eede06684918404 = $(`<div id="html_b93f415fccaf88f16eede06684918404" style="width: 100.0%; height: 100.0%;">Brown, Harrell and Stuart - $908025</div>`)[0];
+                popup_ddcf8bd4358aa4849f3a98d1d52bca29.setContent(html_b93f415fccaf88f16eede06684918404);
+            
+        
+
+        marker_26b4e7ba42119f2fa9f05d311d69796d.bindPopup(popup_ddcf8bd4358aa4849f3a98d1d52bca29)
+        ;
+
+        
+    
+    
+            marker_26b4e7ba42119f2fa9f05d311d69796d.bindTooltip(
+                `<div>
+                     Apartment
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_668320f155a76246f82041b4dbd7df0b = L.marker(
+                [-5.70000922700271, 133.07273290048846],
+                {
+}
+            ).addTo(map_58900a8483f421c4d06841810c23615d);
+        
+    
+        var popup_7ee466f99116521e48230bd524495f77 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7feb0e5fef89ab865b6720099e8180e0 = $(`<div id="html_7feb0e5fef89ab865b6720099e8180e0" style="width: 100.0%; height: 100.0%;">Kramer-Roy - $1162134</div>`)[0];
+                popup_7ee466f99116521e48230bd524495f77.setContent(html_7feb0e5fef89ab865b6720099e8180e0);
+            
+        
+
+        marker_668320f155a76246f82041b4dbd7df0b.bindPopup(popup_7ee466f99116521e48230bd524495f77)
+        ;
+
+        
+    
+    
+            marker_668320f155a76246f82041b4dbd7df0b.bindTooltip(
+                `<div>
+                     Condo
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_3b59026250289686b9ffc78b2884c2a2 = L.marker(
+                [72.33454931387823, -120.59816991116715],
+                {
+}
+            ).addTo(map_58900a8483f421c4d06841810c23615d);
+        
+    
+        var popup_3ef6284be825ca72b0c15e8ebab5dcb2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_87bcdecff070b0765085d1fe7a8cb6b1 = $(`<div id="html_87bcdecff070b0765085d1fe7a8cb6b1" style="width: 100.0%; height: 100.0%;">Robinson-Wheeler - $1007767</div>`)[0];
+                popup_3ef6284be825ca72b0c15e8ebab5dcb2.setContent(html_87bcdecff070b0765085d1fe7a8cb6b1);
+            
+        
+
+        marker_3b59026250289686b9ffc78b2884c2a2.bindPopup(popup_3ef6284be825ca72b0c15e8ebab5dcb2)
+        ;
+
+        
+    
+    
+            marker_3b59026250289686b9ffc78b2884c2a2.bindTooltip(
+                `<div>
+                     House
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>
