@@ -1,0 +1,62 @@
+[
+    {
+        "name": "Ashley Williams",
+        "email": "mrice@example.net",
+        "password": ")jkkoMsQe2",
+        "confirmPassword": ")jkkoMsQe2"
+    },
+    {
+        "name": "Elizabeth Lee",
+        "email": "cole25@example.net",
+        "password": "r!1MzUXjrv",
+        "confirmPassword": "r!1MzUXjrv"
+    },
+    {
+        "name": "Ashley Bennett",
+        "email": "adampowell@example.org",
+        "password": "%Ph0pIQx^^",
+        "confirmPassword": "%Ph0pIQx^^"
+    },
+    {
+        "name": "James Medina",
+        "email": "brownbrian@example.net",
+        "password": "%j3&1Siq7t",
+        "confirmPassword": "%j3&1Siq7t"
+    },
+    {
+        "name": "Michelle Garcia",
+        "email": "lcarpenter@example.com",
+        "password": "8n@8EJvq1%",
+        "confirmPassword": "8n@8EJvq1%"
+    },
+    {
+        "name": "Ann Jones",
+        "email": "cainsteven@example.com",
+        "password": "!)3e0FfG@t",
+        "confirmPassword": "!)3e0FfG@t"
+    },
+    {
+        "name": "Rose Carson",
+        "email": "schneiderdouglas@example.org",
+        "password": "8d62*PJVy%",
+        "confirmPassword": "8d62*PJVy%"
+    },
+    {
+        "name": "James Wood",
+        "email": "taylorbarnes@example.net",
+        "password": "(0aQVQqtPF",
+        "confirmPassword": "(0aQVQqtPF"
+    },
+    {
+        "name": "Kristin Ellis",
+        "email": "alvaradothomas@example.com",
+        "password": "@1Ex(L*lMj",
+        "confirmPassword": "@1Ex(L*lMj"
+    },
+    {
+        "name": "Kimberly Perez",
+        "email": "milesann@example.com",
+        "password": "u84OY2CD^l",
+        "confirmPassword": "u84OY2CD^l"
+    }
+]
