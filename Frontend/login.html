@@ -305,15 +305,39 @@
         .signup-btn:hover {
             background-color: none;
         }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 3px;
+        }
+        
+        .logo-img {
+            height: 22px;
+            width: auto;
+            display: block;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--text-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            line-height: 0.5;
+        }
 
     </style>
 </head>
 <body>
     <header>
         <nav>
-            <a href="test1.html" class="logo">Mane</a>
+            <div class="logo-container">
+                <img src="logo.png" alt="Mane Logo" class="logo-img">
+                <a href="test1.html" class="logo">Mane</a>
+            </div>
             <div class="nav-links">
-                <a href="#buy">Buy</a>
+                <a href="buy.html">Buy</a>
                 <a href="#rent">Rent</a>
                 <a href="#sell">Sell</a>
                 <div class="dropdown">
