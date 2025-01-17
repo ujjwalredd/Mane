@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
 import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
-import { getDatabase, ref, set, get } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-database.js";
+import { getDatabase, ref, set, get, update } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-database.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyBWfLvvzNnfDFh8bIbtTfMSa_AjhYWNtjM",
@@ -18,6 +18,7 @@ const auth = getAuth(app);
 const db = getDatabase(app);
 
 const loginForm = document.getElementById('submit');
+const filters = document.getElementById('applyFilters');
 
 if (loginForm) {
   loginForm.addEventListener('click', (e) => {
@@ -81,5 +82,45 @@ if (loginForm) {
         const errorMessage = error.message;
         alert(errorMessage);
       });
+  });
+}
+
+if (filters) {
+  filters.addEventListener('click', (e) => {
+    e.preventDefault();
+    const property = document.getElementById('propertyType').value;
+    const bedrooms = document.getElementById('bedrooms').value;
+
+    const user = auth.currentUser;
+    if (user) {
+      const userEmail = user.email;
+      const usersRef = ref(db, 'users');
+      
+      get(usersRef).then((snapshot) => {
+        if (snapshot.exists()) {
+          const users = snapshot.val();
+          for (let userId in users) {
+            if (users[userId].email === userEmail) {
+              const userRef = ref(db, `users/${userId}`);
+              update(userRef, {
+                propertyType: property,
+                bedrooms: bedrooms
+              }).then(() => {
+                console.log("User preferences updated successfully");
+              }).catch((error) => {
+                console.error("Error updating user preferences:", error);
+              });
+              break;
+            }
+          }
+        } else {
+          console.log("No users found in the database");
+        }
+      }).catch((error) => {
+        console.error("Error fetching users:", error);
+      });
+    } else {
+      console.log("No user is currently signed in");
+    }
   });
 }
