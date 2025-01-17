@@ -8,6 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script type="module" src="r_db.js" defer></script>
     <style>
         :root {
             --primary-color: #2196F3;
@@ -310,6 +311,7 @@
             </div>
         </nav>
     </header>
+    <form id="filterForm">
     <div class="filter-bar">
         <select id="propertyType">
             <option value="">All Types</option>
@@ -325,8 +327,9 @@
         </select>
         <input type="number" id="minPrice" placeholder="Min Price" />
         <input type="number" id="maxPrice" placeholder="Max Price" />
-        <button onclick="filterProperties()">Apply Filters</button>
+        <button id="applyFilters" onclick="filterProperties()">Apply Filters</button>
     </div>
+    </form>
     <main>
         <div class="left-column">
             <section class="property-grid" id="propertyGrid">

@@ -6,13 +6,15 @@ import {getAuth, createUserWithEmailAndPassword} from "https://www.gstatic.com/f
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBBL1fqTEnpAajWJVlLz6U-2fLJHiOJCpM",
-  authDomain: "mane-4b919.firebaseapp.com",
-  projectId: "mane-4b919",
-  storageBucket: "mane-4b919.firebasestorage.app",
-  messagingSenderId: "751526870289",
-  appId: "1:751526870289:web:98d319f6eae2dac61f20b0"
-};
+    apiKey: "AIzaSyBWfLvvzNnfDFh8bIbtTfMSa_AjhYWNtjM",
+    authDomain: "mane-a8168.firebaseapp.com",
+    databaseURL: "https://mane-a8168-default-rtdb.firebaseio.com",
+    projectId: "mane-a8168",
+    storageBucket: "mane-a8168.firebasestorage.app",
+    messagingSenderId: "269438093729",
+    appId: "1:269438093729:web:b7145ff880dd5b4dd963e0"
+  };
+  
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
@@ -33,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
             .then((userCredential) => {
                 // Signed up 
                 const user = userCredential.user;
-                window.location.href = 'http://127.0.0.1:8080/login.html';
+                window.location.href = 'login.html';
                 // ...
             })
             .catch((error) => {
@@ -46,3 +48,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
     }
 });
+

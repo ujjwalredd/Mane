@@ -6,6 +6,7 @@
     <title>Sign in</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <script type="module" src="login.js" defer></script>
+    <script type="module" src="r_db.js" defer></script>
     <style>
         * {
             margin: 0;
@@ -408,27 +409,5 @@
             Don't have an account? <a href="signup.html">Sign up</a>
         </div>
     </div>
-    <!-- <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const loginForm = document.getElementById('loginForm');
-            
-            if (loginForm) {
-                loginForm.addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    const email = document.getElementById('email').value;
-                    const password = document.getElementById('password').value;
-    
-                    // Retrieve stored user data
-                    const storedUser = JSON.parse(localStorage.getItem('user'));
-    
-                    if (storedUser && storedUser.email === email && storedUser.password === password) {
-                        window.location.href = 'profile.html'; // Redirect to home page
-                    } else {
-                        alert('Invalid credentials');
-                    }
-                });
-            }
-        });
-    </script> -->
 </body>
 </html>
