@@ -344,86 +344,116 @@
 
     <script>
         const properties = [
-            {
-                image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1775&q=80",
-                title: "Luxury Villa",
-                price: 1200000,
-                description: "Spacious villa with modern amenities and breathtaking views.",
-                bedrooms: 5,
-                bathrooms: 4,
-                sqft: 4500,
-                type: "villa"
-            },
-            {
-                image: "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
-                title: "Downtown Apartment",
-                price: 450000,
-                description: "Stylish apartment in the heart of the city with great amenities.",
-                bedrooms: 2,
-                bathrooms: 2,
-                sqft: 1200,
-                type: "apartment"
-            },
-            {
-                image: "https://images.unsplash.com/photo-1602343168117-bb8ffe3e2e9f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1775&q=80",
-                title: "Suburban Family Home",
-                price: 650000,
-                description: "Charming family home in a quiet suburban neighborhood.",
-                bedrooms: 4,
-                bathrooms: 3,
-                sqft: 2800,
-                type: "house"
-            },
-            {
-                image: "https://images.unsplash.com/photo-1602343168117-bb8ffe3e2e9f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1775&q=80",
-                title: "Suburban Family Home",
-                price: 650000,
-                description: "Charming family home in a quiet suburban neighborhood.",
-                bedrooms: 4,
-                bathrooms: 3,
-                sqft: 2800,
-                type: "house"
-            },
-            {
-                image: "https://images.unsplash.com/photo-1602343168117-bb8ffe3e2e9f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1775&q=80",
-                title: "Suburban Family Home",
-                price: 650000,
-                description: "Charming family home in a quiet suburban neighborhood.",
-                bedrooms: 4,
-                bathrooms: 3,
-                sqft: 2800,
-                type: "house"
-            },
-            {
-                image: "https://images.unsplash.com/photo-1602343168117-bb8ffe3e2e9f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1775&q=80",
-                title: "Suburban Family Home",
-                price: 650000,
-                description: "Charming family home in a quiet suburban neighborhood.",
-                bedrooms: 4,
-                bathrooms: 3,
-                sqft: 2800,
-                type: "house"
-            },
-            {
-                image: "https://images.unsplash.com/photo-1602343168117-bb8ffe3e2e9f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1775&q=80",
-                title: "Suburban Family Home",
-                price: 650000,
-                description: "Charming family home in a quiet suburban neighborhood.",
-                bedrooms: 4,
-                bathrooms: 3,
-                sqft: 2800,
-                type: "house"
-            },
-            {
-                image: "https://images.unsplash.com/photo-1602343168117-bb8ffe3e2e9f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1775&q=80",
-                title: "Suburban Family Home",
-                price: 650000,
-                description: "Charming family home in a quiet suburban neighborhood.",
-                bedrooms: 4,
-                bathrooms: 3,
-                sqft: 2800,
-                type: "house"
-            }
+        {
+            image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1775&q=80",
+            title: "Hamilton, Jones and Huff",
+            price: 422266,
+            description: "Spacious house with modern amenities in East Mia, MA.",
+            bedrooms: 3,
+            bathrooms: 2,
+            sqft: 2971,
+            type: "house",
+            propertyId: 1
+        },
+        {
+            image: "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
+            title: "Gonzalez, Anderson and Wu",
+            price: 535339,
+            description: "Stylish apartment in Reevesview, NV with great amenities.",
+            bedrooms: 4,
+            bathrooms: 3,
+            sqft: 1513,
+            type: "apartment",
+            propertyId: 2
+        },
+        {
+            image: "https://images.unsplash.com/photo-1602343168117-bb8ffe3e2e9f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1775&q=80",
+            title: "James Inc",
+            price: 1016222,
+            description: "Modern condo in Christineport, ND with parking available.",
+            bedrooms: 2,
+            bathrooms: 2,
+            sqft: 1242,
+            type: "condo",
+            propertyId: 3
+        },
+        {
+            image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1775&q=80",
+            title: "Johnson and Sons",
+            price: 412746,
+            description: "Spacious family house in Port Bryanshire, FM with parking.",
+            bedrooms: 5,
+            bathrooms: 1,
+            sqft: 3131,
+            type: "house",
+            propertyId: 4
+        },
+        {
+            image: "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
+            title: "Thompson Group",
+            price: 796026,
+            description: "Unique apartment near USNS Miller with parking available.",
+            bedrooms: 1,
+            bathrooms: 4,
+            sqft: 2626,
+            type: "apartment",
+            propertyId: 5
+        },
+        {
+            image: "https://images.unsplash.com/photo-1602343168117-bb8ffe3e2e9f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1775&q=80",
+            title: "Keith, Dorsey and King",
+            price: 627987,
+            description: "Luxurious apartment near USNV Bryan with parking and pool.",
+            bedrooms: 4,
+            bathrooms: 1,
+            sqft: 2772,
+            type: "apartment",
+            propertyId: 6
+        },
+        {
+            image: "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
+            title: "Roberts PLC",
+            price: 1201825,
+            description: "Spacious apartment in West Loriton, DC with parking.",
+            bedrooms: 4,
+            bathrooms: 2,
+            sqft: 3910,
+            type: "apartment",
+            propertyId: 7
+        },
+        {
+            image: "https://images.unsplash.com/photo-1602343168117-bb8ffe3e2e9f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1775&q=80",
+            title: "Wilkins-Henderson",
+            price: 1375167,
+            description: "Luxurious apartment in West Josephberg, PA with parking and pool.",
+            bedrooms: 5,
+            bathrooms: 4,
+            sqft: 3419,
+            type: "apartment",
+            propertyId: 8
+        },
+        {
+            image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1775&q=80",
+            title: "Owens-Cabrera",
+            price: 541385,
+            description: "Modern apartment in North Jasonmouth, GA with parking and pool.",
+            bedrooms: 3,
+            bathrooms: 3,
+            sqft: 2429,
+            type: "apartment",
+            propertyId: 9
+        },
+        {
+            image: "https://images.unsplash.com/photo-1602343168117-bb8ffe3e2e9f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1775&q=80",
+            title: "Castro, Levine and Gill",
+            price: 552651,
+            description: "Charming condo in Oconnorville, VI with pool access.",
+            bedrooms: 2,
+            bathrooms: 4,
+            sqft: 2620,
+            type: "condo",
+            propertyId: 10
+        }
             
         ];
 

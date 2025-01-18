@@ -1,0 +1,21 @@
+Property_ID,Property_Name,Property_Type,Price,Size (sq ft),Bedrooms,Bathrooms,Parking,Pool,Location,Latitude,Longitude
+1,"Hamilton, Jones and Huff",House,422266,2971,3,2,No,No,"57948 West Hill Apt. 974
+East Mia, MA 50665",58.43398408699568,-15.889703436891665
+2,"Gonzalez, Anderson and Wu",Apartment,535339,1513,4,3,No,No,"81884 Joseph Ridge
+Reevesview, NV 34271",68.66652551945981,126.74821867046626
+3,James Inc,Condo,1016222,1242,2,2,Yes,No,"2820 Garrett Inlet Suite 340
+Christineport, ND 03269",29.90339062847285,140.31606894604886
+4,Johnson and Sons,House,412746,3131,5,1,Yes,No,"6253 Wyatt Road
+Port Bryanshire, FM 08246",47.899764857349794,-52.99611725268579
+5,Thompson Group,Apartment,796026,2626,1,4,Yes,No,"USNS Miller
+FPO AP 92679",35.167087783222584,-96.12506706432642
+6,"Keith, Dorsey and King",Apartment,627987,2772,4,1,Yes,Yes,"USNV Bryan
+FPO AA 76721",6.1640893345525285,-124.38839537390089
+7,Roberts PLC,Apartment,1201825,3910,4,2,Yes,No,"6719 Lloyd Squares
+West Loriton, DC 93156",12.233478752744148,-24.16640711813625
+8,Wilkins-Henderson,Apartment,1375167,3419,5,4,Yes,Yes,"9535 Virginia Streets
+West Josephberg, PA 66923",-37.0577511380283,87.16758916973816
+9,Owens-Cabrera,Apartment,541385,2429,3,3,Yes,Yes,"598 Donna Mountain Apt. 108
+North Jasonmouth, GA 64866",57.12107388680499,152.72658082123354
+10,"Castro, Levine and Gill",Condo,552651,2620,2,4,No,Yes,"1581 Walter Grove Suite 711
+Oconnorville, VI 39246",66.19534940996098,100.58619552251332

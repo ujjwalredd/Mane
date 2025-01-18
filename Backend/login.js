@@ -42,6 +42,10 @@ if (loginForm) {
             for (let userId in users) {
               if (users[userId].email === email) {
                 emailExists = true;
+                const bed = users[userId].bedrooms;
+                localStorage.setItem('bed', bed);
+                const prop = users[userId].propertyType;
+                localStorage.setItem('prop', prop);
                 console.log("Email already exists. Not updating database.");
                 break;
               }
@@ -95,6 +99,7 @@ if (filters) {
     if (user) {
       const userEmail = user.email;
       const usersRef = ref(db, 'users');
+      localStorage.setItem('userEmail', userEmail);
       
       get(usersRef).then((snapshot) => {
         if (snapshot.exists()) {
@@ -102,6 +107,8 @@ if (filters) {
           for (let userId in users) {
             if (users[userId].email === userEmail) {
               const userRef = ref(db, `users/${userId}`);
+            
+              
               update(userRef, {
                 propertyType: property,
                 bedrooms: bedrooms
