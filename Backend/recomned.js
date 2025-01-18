@@ -15,8 +15,9 @@ async function getRecommendations(bedrooms, type) {
         }
 
         const data = await response.json();
-        console.log("Received recommendations:", data);
-        console.log("Received recommendations:", data.property_ids);
+        // console.log("Received recommendations:", data);
+        const id = data.property_ids;
+        localStorage.setItem('id', id);
         return data.recommendations;
     } catch (error) {
         console.error("Error in fetch:", error);
@@ -39,6 +40,8 @@ async function applyFiltersAndGetRecommendations() {
 
     const recommendedIds = await getRecommendations(bedrooms, type);
 
+    
+
     const recommendedProperties = properties.filter(property =>
         recommendedIds.includes(property.propertyId)
     );
@@ -52,9 +55,35 @@ async function applyFiltersAndGetRecommendations() {
 document.addEventListener('DOMContentLoaded', () => {
     const bedrooms = localStorage.getItem('bed');
     const type = localStorage.getItem('prop');
+    const idarray = localStorage.getItem('id');
+    console.log(idarray);
+    console.log(bedrooms);
+    console.log(type);
 
     if (bedrooms || type) {
-        applyFiltersAndGetRecommendations();
+        function filterPropertiesByIds(ids) {
+            return properties.filter(property => ids.includes(property.propertyId));
+        }
+    
+        function displayProperties(propertiesToShow) {
+            const propertyGrid = document.getElementById('propertyGrid');
+            propertyGrid.innerHTML = propertiesToShow.map(createPropertyCard).join('');
+        }
+    
+        function updatePropertiesDisplay(data) {
+            if (Array.isArray(data.property_ids) && data.property_ids.length > 0) {
+                const filteredProperties = filterPropertiesByIds(data.property_ids);
+                displayProperties(filteredProperties);
+            } else {
+                console.log("No property IDs received or invalid data");
+                displayProperties(propertiesToShow);
+            }
+        }
+        const idArray = idarray.split(',').map(Number);
+        const receivedData = { property_ids: idArray};
+        updatePropertiesDisplay(receivedData);
+    
+    
     } else {
         console.log("No filters set on page load. Waiting for user input.");
     }

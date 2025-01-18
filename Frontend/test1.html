@@ -66,54 +66,73 @@
             position: relative;
             display: inline-block;
         }
-
+        
+        .dropdown-toggle {
+            padding: 10px 20px;
+            background-color: none; /* Primary color */
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        
+        .dropdown-toggle:hover {
+            background-color:none; /* Darker shade on hover */
+        }
+        
         .dropdown-content {
             display: none;
             position: absolute;
             background-color: white;
             min-width: 400px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
             border-radius: 8px;
             padding: 1rem;
             right: -100px;
             top: 100%;
+            opacity: 0; /* Start hidden */
+            transform: translateY(10px); /* Slide down effect */
+            transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition */
         }
-
+        
         .dropdown:hover .dropdown-content {
             display: block;
+            opacity: 1; /* Fade in */
+            transform: translateY(0); /* Slide into place */
         }
-
+        
         .dropdown-item {
             display: flex;
             align-items: flex-start;
             padding: 1rem;
             text-decoration: none;
-            color: var(--text-color);
+            color: #333; /* Dark text color */
             border-radius: 6px;
             margin-bottom: 0.5rem;
+            transition: background-color 0.2s ease; /* Smooth hover effect */
         }
-
+        
         .dropdown-item:hover {
-            background-color: var(--background-color);
+            background-color: #f1f1f1; /* Light grey on hover */
         }
-
+        
         .dropdown-text {
             flex: 1;
         }
-
+        
         .dropdown-text h4 {
             margin: 0;
             margin-bottom: 0.25rem;
-            font-size: 1rem;
-            color: var(--text-color);
+            font-size: 1.2rem; /* Slightly larger font size */
+            color: black; /* Primary color for headings */
         }
-
+        
         .dropdown-text p {
             margin: 0;
-            font-size: 0.875rem;
-            color: #666;
-            line-height: 1.4;
+            font-size: 0.5rem; /* Slightly larger paragraph text */
+            color: #666; 
         }
+        
 
         .auth-buttons {
             display: flex;
@@ -328,7 +347,6 @@
             </div>
             <div class="nav-links">
                 <a href="buy.html">Buy</a>
-                <a href="#rent">Rent</a>
                 <a href="#sell">Sell</a>
                 <div class="dropdown">
                     <a href="#about">About us</a>
@@ -336,10 +354,11 @@
                         <a href="#mission" class="dropdown-item">
                             <div class="dropdown-text">
                                 <h4>Our mission</h4>
-                                <p>Empowering advisors for better client outcomes and maximum potential</p>
+                                <p>At Mane, we leverage AI to transform real estate. Our platform offers intelligent suggestions, a multilingual chatbot for seamless negotiations, and computer vision to evaluate properties and predict values. 
+                                    With geospatial analytics, we empower smarter decisions, maximize ROI, and foster connected communities.</p>
                             </div>
                         </a>
-                        <a href="#founding" class="dropdown-item">
+                        <!-- <a href="#founding" class="dropdown-item">
                             <div class="dropdown-text">
                                 <h4>Founding story</h4>
                                 <p>The journey from identifying a gap in financial advising to revolutionizing it</p>
@@ -350,7 +369,7 @@
                                 <h4>Team</h4>
                                 <p>Blending financial wisdom with tech prowess: meet the team</p>
                             </div>
-                        </a>
+                        </a> -->
                     </div>
                 </div>
                 <a href="#agents">Agents</a>
