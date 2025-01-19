@@ -30,6 +30,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
             const confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (password !== confirmPassword) {
+                alert("Passwords do not match. Please try again.");
+                return; // Stop further execution if passwords don't match
+            }
             
             createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {

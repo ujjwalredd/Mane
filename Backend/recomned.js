@@ -90,6 +90,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Add click event listener for manual updates
-document.getElementById('applyFilters').addEventListener('click', applyFiltersAndGetRecommendations);
+// document.getElementById('applyFilters').addEventListener('click', applyFiltersAndGetRecommendations);
 
 
