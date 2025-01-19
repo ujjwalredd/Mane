@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +13,7 @@
     <script type="module" src="/Backend/recomned.js" defer></script>
     <link rel="stylesheet" href="loginbuy.css">
 </head>
+
 <body>
     <header>
         <nav>
@@ -28,8 +30,11 @@
                         <a href="#mission" class="dropdown-item">
                             <div class="dropdown-text">
                                 <h4>Our mission</h4>
-                                <p>At Mane, we leverage AI to transform real estate. Our platform offers intelligent suggestions, a multilingual chatbot for seamless negotiations, and computer vision to evaluate properties and predict values. 
-                                    With geospatial analytics, we empower smarter decisions, maximize ROI, and foster connected communities.</p>
+                                <p>At Mane, we leverage AI to transform real estate. Our platform offers intelligent
+                                    suggestions, a multilingual chatbot for seamless negotiations, and computer vision
+                                    to evaluate properties and predict values.
+                                    With geospatial analytics, we empower smarter decisions, maximize ROI, and foster
+                                    connected communities.</p>
                             </div>
                         </a>
                         <!-- <a href="#founding" class="dropdown-item">
@@ -54,23 +59,23 @@
         </nav>
     </header>
     <form id="filterForm">
-    <div class="filter-bar">
-        <select id="propertyType">
-            <option value="">All Types</option>
-            <option value="villa">Villa</option>
-            <option value="apartment">Apartment</option>
-            <option value="house">House</option>
-        </select>
-        <select id="bedrooms">
-            <option value="">All Bedrooms</option>
-            <option value="2">2+</option>
-            <option value="3">3+</option>
-            <option value="4">4+</option>
-        </select>
-        <input type="number" id="minPrice" placeholder="Min Price" />
-        <input type="number" id="maxPrice" placeholder="Max Price" />
-        <button id="applyFilters" onclick="filterProperties()">Apply Filters</button>
-    </div>
+        <div class="filter-bar">
+            <select id="propertyType">
+                <option value="">All Types</option>
+                <option value="villa">Villa</option>
+                <option value="apartment">Apartment</option>
+                <option value="house">House</option>
+            </select>
+            <select id="bedrooms">
+                <option value="">All Bedrooms</option>
+                <option value="2">2+</option>
+                <option value="3">3+</option>
+                <option value="4">4+</option>
+            </select>
+            <input type="number" id="minPrice" placeholder="Min Price" />
+            <input type="number" id="maxPrice" placeholder="Max Price" />
+            <button id="applyFilters" onclick="filterProperties()">Apply Filters</button>
+        </div>
     </form>
     <main>
         <div class="left-column">
@@ -86,124 +91,142 @@
         </div>
     </main>
 
+    <div id="propertyPopup" class="popup" style="display: none;">
+        <div class="popup-content">
+            <span class="close-btn">&times;</span>
+            <h2 id="propertyTitle"></h2>
+            <img id="propertyImage" src="" alt="Property Image">
+            <p id="propertyDescription"></p>
+            <p>Bedrooms: <span id="bed"></span></p>
+            <p>Bathrooms: <span id="bathrooms"></span></p>
+            <p>Area: <span id="area"></span> sqft</p>
+            <p>Price: $<span id="price"></span></p>
+            <button id="aiChatButton"> AI Property Negotiation </button>
+        </div>
+    </div>
+    
+    
+    
+
     <script>
         const properties = [
-        {
-            image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1775&q=80",
-            title: "Hamilton, Jones and Huff",
-            price: 422266,
-            description: "Spacious house with modern amenities in East Mia, MA.",
-            bedrooms: 3,
-            bathrooms: 2,
-            sqft: 2971,
-            type: "house",
-            propertyId: 1
-        },
-        {
-            image: "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
-            title: "Gonzalez, Anderson and Wu",
-            price: 535339,
-            description: "Stylish apartment in Reevesview, NV with great amenities.",
-            bedrooms: 4,
-            bathrooms: 3,
-            sqft: 1513,
-            type: "apartment",
-            propertyId: 2
-        },
-        {
-            image: "https://images.unsplash.com/photo-1602343168117-bb8ffe3e2e9f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1775&q=80",
-            title: "James Inc",
-            price: 1016222,
-            description: "Modern condo in Christineport, ND with parking available.",
-            bedrooms: 2,
-            bathrooms: 2,
-            sqft: 1242,
-            type: "condo",
-            propertyId: 3
-        },
-        {
-            image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1775&q=80",
-            title: "Johnson and Sons",
-            price: 412746,
-            description: "Spacious family house in Port Bryanshire, FM with parking.",
-            bedrooms: 5,
-            bathrooms: 1,
-            sqft: 3131,
-            type: "house",
-            propertyId: 4
-        },
-        {
-            image: "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
-            title: "Thompson Group",
-            price: 796026,
-            description: "Unique apartment near USNS Miller with parking available.",
-            bedrooms: 1,
-            bathrooms: 4,
-            sqft: 2626,
-            type: "apartment",
-            propertyId: 5
-        },
-        {
-            image: "https://images.unsplash.com/photo-1602343168117-bb8ffe3e2e9f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1775&q=80",
-            title: "Keith, Dorsey and King",
-            price: 627987,
-            description: "Luxurious apartment near USNV Bryan with parking and pool.",
-            bedrooms: 4,
-            bathrooms: 1,
-            sqft: 2772,
-            type: "apartment",
-            propertyId: 6
-        },
-        {
-            image: "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
-            title: "Roberts PLC",
-            price: 1201825,
-            description: "Spacious apartment in West Loriton, DC with parking.",
-            bedrooms: 4,
-            bathrooms: 2,
-            sqft: 3910,
-            type: "apartment",
-            propertyId: 7
-        },
-        {
-            image: "https://images.unsplash.com/photo-1602343168117-bb8ffe3e2e9f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1775&q=80",
-            title: "Wilkins-Henderson",
-            price: 1375167,
-            description: "Luxurious apartment in West Josephberg, PA with parking and pool.",
-            bedrooms: 5,
-            bathrooms: 4,
-            sqft: 3419,
-            type: "apartment",
-            propertyId: 8
-        },
-        {
-            image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1775&q=80",
-            title: "Owens-Cabrera",
-            price: 541385,
-            description: "Modern apartment in North Jasonmouth, GA with parking and pool.",
-            bedrooms: 3,
-            bathrooms: 3,
-            sqft: 2429,
-            type: "apartment",
-            propertyId: 9
-        },
-        {
-            image: "https://images.unsplash.com/photo-1602343168117-bb8ffe3e2e9f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1775&q=80",
-            title: "Castro, Levine and Gill",
-            price: 552651,
-            description: "Charming condo in Oconnorville, VI with pool access.",
-            bedrooms: 2,
-            bathrooms: 4,
-            sqft: 2620,
-            type: "condo",
-            propertyId: 10
-        }
-            
+            {
+                image: "Images/1.jpg",
+                title: "Hamilton, Jones and Huff",
+                price: 422266,
+                description: "Spacious house with modern amenities in East Mia, MA.",
+                bedrooms: 3,
+                bathrooms: 2,
+                sqft: 2971,
+                type: "house",
+                propertyId: 1
+            },
+            {
+                image: "Images/4.jpg",
+                title: "Gonzalez, Anderson and Wu",
+                price: 535339,
+                description: "Stylish apartment in Reevesview, NV with great amenities.",
+                bedrooms: 4,
+                bathrooms: 3,
+                sqft: 1513,
+                type: "apartment",
+                propertyId: 2
+            },
+            {
+                image: "Images/3.jpg",
+                title: "James Inc",
+                price: 1016222,
+                description: "Modern condo in Christineport, ND with parking available.",
+                bedrooms: 2,
+                bathrooms: 2,
+                sqft: 1242,
+                type: "condo",
+                propertyId: 3
+            },
+            {
+                image: "Images/2.jpg",
+                title: "Johnson and Sons",
+                price: 412746,
+                description: "Spacious family house in Port Bryanshire, FM with parking.",
+                bedrooms: 5,
+                bathrooms: 1,
+                sqft: 3131,
+                type: "house",
+                propertyId: 4
+            },
+            {
+                image: "Images/5.jpg",
+                title: "Thompson Group",
+                price: 796026,
+                description: "Unique apartment near USNS Miller with parking available.",
+                bedrooms: 1,
+                bathrooms: 4,
+                sqft: 2626,
+                type: "apartment",
+                propertyId: 5
+            },
+            {
+                image: "Images/6.jpg",
+                title: "Keith, Dorsey and King",
+                price: 627987,
+                description: "Luxurious apartment near USNV Bryan with parking and pool.",
+                bedrooms: 4,
+                bathrooms: 1,
+                sqft: 2772,
+                type: "apartment",
+                propertyId: 6
+            },
+            {
+                image: "Images/7.jpg",
+                title: "Roberts PLC",
+                price: 1201825,
+                description: "Spacious apartment in West Loriton, DC with parking.",
+                bedrooms: 4,
+                bathrooms: 2,
+                sqft: 3910,
+                type: "apartment",
+                propertyId: 7
+            },
+            {
+                image: "Images/8.jpg",
+                title: "Wilkins-Henderson",
+                price: 1375167,
+                description: "Luxurious apartment in West Josephberg, PA with parking and pool.",
+                bedrooms: 5,
+                bathrooms: 4,
+                sqft: 3419,
+                type: "apartment",
+                propertyId: 8
+            },
+            {
+                image: "Images/9.jpg",
+                title: "Owens-Cabrera",
+                price: 541385,
+                description: "Modern apartment in North Jasonmouth, GA with parking and pool.",
+                bedrooms: 3,
+                bathrooms: 3,
+                sqft: 2429,
+                type: "apartment",
+                propertyId: 9
+            },
+            {
+                image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1775&q=80",
+                title: "Castro, Levine and Gill",
+                price: 552651,
+                description: "Charming condo in Oconnorville, VI with pool access.",
+                bedrooms: 2,
+                bathrooms: 4,
+                sqft: 2620,
+                type: "condo",
+                propertyId: 10
+            }
+
         ];
+
 
         function createPropertyCard(property) {
             return `
-                <div class="property-card">
+                <div class="property-card" data-property-id="${property.propertyId}">
                     <img src="${property.image}" alt="${property.title}">
                     <div class="property-info">
                         <h3>${property.title}</h3>
@@ -218,12 +241,61 @@
                 </div>
             `;
         }
-
+        
         function displayProperties(propertiesToShow) {
             const propertyGrid = document.getElementById('propertyGrid');
-            propertyGrid.innerHTML = propertiesToShow.map(createPropertyCard).join('');
+            propertyGrid.innerHTML = propertiesToShow.map(property => createPropertyCard(property)).join('');
+
+            document.querySelectorAll('.property-card').forEach(card => {
+                card.addEventListener('click', handlePropertyCardClick);
+            });
         }
+
+        function handlePropertyCardClick(event) {
+            const card = event.currentTarget;
+            const propertyId = parseInt(card.dataset.propertyId);
+            console.log("Clicked property ID:", propertyId);
+            
+            const property = properties.find(p => p.propertyId === propertyId);
+            
+            if (property) {
+                document.getElementById('propertyTitle').textContent = property.title;
+                document.getElementById('propertyImage').src = property.image;
+                document.getElementById('propertyDescription').textContent = property.description;
+                document.getElementById('bed').textContent = property.bedrooms;
+                document.getElementById('bathrooms').textContent = property.bathrooms;
+                document.getElementById('area').textContent = property.sqft;
+                document.getElementById('price').textContent = property.price.toLocaleString();
         
+                document.getElementById('propertyPopup').style.display = 'block';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Hide the popup on page load
+            document.getElementById('propertyPopup').style.display = 'none';
+        
+            displayProperties(properties);
+        
+            const popup = document.getElementById('propertyPopup');
+            const closeBtn = popup.querySelector('.close-btn');
+        
+            closeBtn.addEventListener('click', () => {
+                popup.style.display = 'none';
+            });
+        
+            window.addEventListener('click', (event) => {
+                if (event.target === popup) {
+                    popup.style.display = 'none';
+                }
+            });
+        });
+        
+
+
+
+
+
 
 
         function filterProperties() {
@@ -272,4 +344,5 @@
         initMap();
     </script>
 </body>
+
 </html>
