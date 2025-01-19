@@ -21,7 +21,7 @@
             </div>
             <div class="nav-links">
                 <a href="buy.html">Buy</a>
-                <a href="#sell">Sell</a>
+                <a href="sell.html">Sell</a>
                 <div class="dropdown">
                     <a href="#about">About us</a>
                     <div class="dropdown-content">
@@ -206,7 +206,7 @@
                 propertyId: 9
             },
             {
-                image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1775&q=80",
+                image: "Images/13.jpg",
                 title: "Castro, Levine and Gill",
                 price: 552651,
                 description: "Charming condo in Oconnorville, VI with pool access.",
@@ -237,44 +237,47 @@
             `
 
         };
-        document.addEventListener('DOMContentLoaded', () => {
+        function attachEventListeners() {
             const propertyCards = document.querySelectorAll('.property-card');
             const popup = document.getElementById('propertyPopup');
             const closeBtn = popup.querySelector('.close-btn');
-          
+        
             propertyCards.forEach((card, index) => {
-              card.addEventListener('click', () => {
-                const property = properties[index];
-                document.getElementById('propertyTitle').textContent = property.title;
-                document.getElementById('propertyImage').src = property.image;
-                document.getElementById('propertyDescription').textContent = property.description;
-                document.getElementById('bed').textContent = property.bedrooms;
-                document.getElementById('bathrooms').textContent = property.bathrooms;
-                document.getElementById('area').textContent = property.sqft;
-                document.getElementById('price').textContent = property.price;
-          
-                popup.style.display = 'block';
-              });
+                card.addEventListener('click', () => {
+                    const property = properties[index];
+                    document.getElementById('propertyTitle').textContent = property.title;
+                    document.getElementById('propertyImage').src = property.image;
+                    document.getElementById('propertyDescription').textContent = property.description;
+                    document.getElementById('bed').textContent = property.bedrooms;
+                    document.getElementById('bathrooms').textContent = property.bathrooms;
+                    document.getElementById('area').textContent = property.sqft;
+                    document.getElementById('price').textContent = property.price;
+        
+                    popup.style.display = 'block';
+                });
             });
-          
+        
             closeBtn.addEventListener('click', () => {
-              popup.style.display = 'none';
-            });
-          
-            window.addEventListener('click', (event) => {
-              if (event.target === popup) {
                 popup.style.display = 'none';
-              }
             });
-          });          
-
-
-
-
+        
+            window.addEventListener('click', (event) => {
+                if (event.target === popup) {
+                    popup.style.display = 'none';
+                }
+            });
+        }
+        
         function displayProperties(propertiesToShow) {
             const propertyGrid = document.getElementById('propertyGrid');
             propertyGrid.innerHTML = propertiesToShow.map(createPropertyCard).join('');
+            attachEventListeners(); // Reattach event listeners after updating the grid
         }
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            displayProperties(properties);
+            attachEventListeners();
+        });
 
         function filterProperties() {
             const type = document.getElementById("propertyType").value;
@@ -300,7 +303,7 @@
         let markers = [];
 
         function initMap() {
-            map = L.map('map').setView([40.7128, -74.0060], 12);
+            map = L.map('map').setView([39.148884, -86.529289], 12);
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             }).addTo(map);

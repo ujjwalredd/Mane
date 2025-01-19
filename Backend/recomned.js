@@ -60,90 +60,84 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log(bedrooms);
     console.log(type);
 
-    function filterPropertiesByIds(ids) {
-        return properties.filter(property => ids.includes(property.propertyId));
-    }
-    
-    function displayProperties(propertiesToShow) {
-        const propertyGrid = document.getElementById('propertyGrid');
-        propertyGrid.innerHTML = propertiesToShow.map(property => createPropertyCard(property)).join('');
-        
-        // Add click event listeners to all property cards
-        document.querySelectorAll('.property-card').forEach(card => {
-            card.addEventListener('click', handlePropertyCardClick);
-        });
-    }
-    
-    function handlePropertyCardClick(event) {
-        const card = event.currentTarget;
-        const propertyId = parseInt(card.dataset.propertyId);
-        console.log("Clicked property ID:", propertyId);
-        
-        // Find the property in the properties array
-        const property = properties.find(p => p.propertyId === propertyId);
-        
-        if (property) {
-            // Update popup content
-            document.getElementById('propertyTitle').textContent = property.title;
-            document.getElementById('propertyImage').src = property.image;
-            document.getElementById('propertyDescription').textContent = property.description;
-            document.getElementById('bed').textContent = property.bedrooms;
-            document.getElementById('bathrooms').textContent = property.bathrooms;
-            document.getElementById('area').textContent = property.sqft;
-            document.getElementById('price').textContent = property.price.toLocaleString();
-    
-            // Show the popup
-            document.getElementById('propertyPopup').style.display = 'block';
+    if (bedrooms || type) {
+        function filterPropertiesByIds(ids) {
+            return properties.filter(property => ids.includes(property.propertyId));
         }
-    }
     
-    function updatePropertiesDisplay(data) {
-        if (Array.isArray(data.property_ids) && data.property_ids.length > 0) {
-            const filteredProperties = filterPropertiesByIds(data.property_ids);
-            displayProperties(filteredProperties);
-        } else {
-            console.log("No property IDs received or invalid data");
-            displayProperties(properties); // Assuming 'properties' is your full list of properties
+        function displayProperties(propertiesToShow) {
+            const propertyGrid = document.getElementById('propertyGrid');
+            propertyGrid.innerHTML = propertiesToShow.map(property => createPropertyCard(property)).join('');
+            
+            // Add click event listeners to all property cards
+            document.querySelectorAll('.property-card').forEach(card => {
+                card.addEventListener('click', handlePropertyCardClick);
+            });
         }
-    }
-    
-    // Main execution
-    document.addEventListener('DOMContentLoaded', () => {
-        const bedrooms = localStorage.getItem('bed');
-        const type = localStorage.getItem('prop');
-        const idarray = localStorage.getItem('id');
-        console.log(idarray);
-        console.log(bedrooms);
-        console.log(type);
-    
-        if (bedrooms || type) {
-            if (idarray) {
-                const idArray = idarray.split(',').map(Number);
-                const receivedData = { property_ids: idArray };
-                updatePropertiesDisplay(receivedData);
-            } else {
-                displayProperties(properties);
-            }
-        } else {
-            console.log("No filters set on page load. Displaying all properties.");
+
+        document.addEventListener('DOMContentLoaded', () => {
             displayProperties(properties);
-        }
-    
-        // Set up popup close functionality
-        const popup = document.getElementById('propertyPopup');
-        const closeBtn = popup.querySelector('.close-btn');
-    
-        closeBtn.addEventListener('click', () => {
-            popup.style.display = 'none';
-        });
-    
-        window.addEventListener('click', (event) => {
-            if (event.target === popup) {
+        
+            const popup = document.getElementById('propertyPopup');
+            const closeBtn = popup.querySelector('.close-btn');
+        
+            closeBtn.addEventListener('click', () => {
                 popup.style.display = 'none';
-            }
+            });
+        
+            window.addEventListener('click', (event) => {
+                if (event.target === popup) {
+                    popup.style.display = 'none';
+                }
+            });
         });
-    });
+        
+
+        function handlePropertyCardClick(event) {
+            const card = event.currentTarget;
+            const propertyId = parseInt(card.dataset.propertyId);
+            console.log("Clicked property ID:", propertyId);
+            
+            // Find the property in the properties array
+            const property = properties.find(p => p.propertyId === propertyId);
+            
+            if (property) {
+                // Update popup content
+                document.getElementById('propertyTitle').textContent = property.title;
+                document.getElementById('propertyImage').src = property.image;
+                document.getElementById('propertyDescription').textContent = property.description;
+                document.getElementById('bed').textContent = property.bedrooms;
+                document.getElementById('bathrooms').textContent = property.bathrooms;
+                document.getElementById('area').textContent = property.sqft;
+                document.getElementById('price').textContent = property.price.toLocaleString();
+        
+                // Show the popup
+                document.getElementById('propertyPopup').style.display = 'block';
+            }
+        }
+        
+        
+    
+        function updatePropertiesDisplay(data) {
+            if (Array.isArray(data.property_ids) && data.property_ids.length > 0) {
+                const filteredProperties = filterPropertiesByIds(data.property_ids);
+                displayProperties(filteredProperties);
+            } else {
+                console.log("No property IDs received or invalid data");
+                displayProperties(properties); // Assuming 'properties' is your full list of properties
+            }
+        }
+        
+        const idArray = idarray.split(',').map(Number);
+        const receivedData = { property_ids: idArray};
+        updatePropertiesDisplay(receivedData);
+    
+    
+    } else {
+        console.log("No filters set on page load. Waiting for user input.");
+    }
 });
+
 // Add click event listener for manual updates
 // document.getElementById('applyFilters').addEventListener('click', applyFiltersAndGetRecommendations);
 
