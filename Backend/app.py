@@ -1,4 +1,6 @@
 from flask import Flask, request, jsonify
+import torch
+from transformers import pipeline
 import pickle
 import pandas as pd
 from flask_cors import CORS
@@ -15,6 +17,7 @@ with open('/Users/ujjwalreddyks/Desktop/Mane/Mane/Backend/vectorizer.pkl', 'rb')
 
 # Load property data
 property_data = pd.read_csv("/Users/ujjwalreddyks/Desktop/Mane/Mane/Backend/property_list.csv")
+
 
 @app.route('/recommend', methods=['POST'])
 def recommend():
@@ -37,6 +40,18 @@ def recommend():
         return jsonify({'status': 'success', 'property_ids': property_ids})
     except Exception as e:
         return jsonify({'status': 'error', 'message': str(e)}), 500
+    
+pipe = pipeline("text-generation", model="TinyLlama/TinyLlama-1.1B-Chat-v1.0", torch_dtype=torch.bfloat16, device_map="auto")
+
+@app.route('/generate', methods=['POST'])
+def generate_response():
+    
+    data = request.json
+    messages = data['messages']
+    prompt = pipe.tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+    outputs = pipe(prompt, max_new_tokens=256, do_sample=True, temperature=0.7, top_k=50, top_p=0.95)
+    return jsonify({'response': outputs[0]["generated_text"]})
+
 
 if __name__ == '__main__':
     app.run(debug=True)

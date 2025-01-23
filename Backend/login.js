@@ -3,13 +3,13 @@ import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/fir
 import { getDatabase, ref, set, get, update } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-database.js";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBWfLvvzNnfDFh8bIbtTfMSa_AjhYWNtjM",
-    authDomain: "mane-a8168.firebaseapp.com",
-    databaseURL: "https://mane-a8168-default-rtdb.firebaseio.com",
-    projectId: "mane-a8168",
-    storageBucket: "mane-a8168.firebasestorage.app",
-    messagingSenderId: "269438093729",
-    appId: "1:269438093729:web:b7145ff880dd5b4dd963e0"
+  apiKey: "AIzaSyBWfLvvzNnfDFh8bIbtTfMSa_AjhYWNtjM",
+  authDomain: "mane-a8168.firebaseapp.com",
+  databaseURL: "https://mane-a8168-default-rtdb.firebaseio.com",
+  projectId: "mane-a8168",
+  storageBucket: "mane-a8168.firebasestorage.app",
+  messagingSenderId: "269438093729",
+  appId: "1:269438093729:web:b7145ff880dd5b4dd963e0"
 };
 
 
@@ -29,15 +29,15 @@ if (loginForm) {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        
+
         // Reference to the users node
         const usersRef = ref(db, 'users');
-        
+
         get(usersRef).then((snapshot) => {
           if (snapshot.exists()) {
             const users = snapshot.val();
             let emailExists = false;
-            
+
             // Check if email already exists
             for (let userId in users) {
               if (users[userId].email === email) {
@@ -50,13 +50,15 @@ if (loginForm) {
                 break;
               }
             }
-            
+
             if (!emailExists) {
               // Email doesn't exist, proceed with adding new user
               let newUserId = 1;
+              localStorage.setItem('bed', '');
+              localStorage.setItem('prop', '');
               const userIds = Object.keys(users).map(Number);
               newUserId = Math.max(...userIds) + 1;
-              
+
               const userRef = ref(db, 'users/' + newUserId);
               set(userRef, {
                 email: user.email,
@@ -75,7 +77,7 @@ if (loginForm) {
             });
             console.log("First user added to database with ID: 1");
           }
-          
+
           // Redirect to profile page
           window.location.href = 'profile.html';
         }).catch((error) => {
@@ -100,15 +102,15 @@ if (filters) {
       const userEmail = user.email;
       const usersRef = ref(db, 'users');
       localStorage.setItem('userEmail', userEmail);
-      
+
       get(usersRef).then((snapshot) => {
         if (snapshot.exists()) {
           const users = snapshot.val();
           for (let userId in users) {
             if (users[userId].email === userEmail) {
               const userRef = ref(db, `users/${userId}`);
-            
-              
+
+
               update(userRef, {
                 propertyType: property,
                 bedrooms: bedrooms

@@ -96,7 +96,6 @@ document.addEventListener('DOMContentLoaded', () => {
         function handlePropertyCardClick(event) {
             const card = event.currentTarget;
             const propertyId = parseInt(card.dataset.propertyId);
-            console.log("Clicked property ID:", propertyId);
             
             // Find the property in the properties array
             const property = properties.find(p => p.propertyId === propertyId);
